@@ -45,7 +45,7 @@ void printf_message(const char* msg)
 void write_file(ClockCounter* counter, const char* text)
 {
     FILE *fp;
-    fp = fopen(counter->path, "a");
+    fp = fopen(addString("/home/amatsukaze/raspicat2/clock/", counter->path), "a");
     if(fp == NULL)
     {
         return;
@@ -59,9 +59,18 @@ void write_file(ClockCounter* counter, const char* text)
 ClockCounter* create_clock_counter(const char* path)
 {
     //! ClockCounter 構造体のポインタを作成
-    ClockCounter* counter;
+    ClockCounter* counter = malloc(sizeof(ClockCounter));
+    if(counter == NULL)
+    {
+        return NULL;
+    }
     //! 構造体ポインタに path を作成
-    counter->path = path;
+    counter->path = strdup(path);
+    if(counter->path == NULL)
+    {
+        free(counter);
+        return NULL;
+    }
     //! 構造体ポインタを返す
     return counter;
 }
