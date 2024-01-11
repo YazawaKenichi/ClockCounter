@@ -1,6 +1,6 @@
 # ClockCounter
 ## 概要
-C++ で使用可能なプログラムの処理時間を計測し、結果を任意のファイルに保存することができるプログラム
+C で使用可能なプログラムの処理時間を計測し、結果を任意のファイルに保存することができるプログラム
 
 ## 単位
 ```
@@ -8,13 +8,13 @@ C++ で使用可能なプログラムの処理時間を計測し、結果を任�
 ```
 
 ## 使用方法
-### C++
-``` C++
+### C
+``` C
 //! 書き出すファイルパスを指定してインスタンス化
-auto cc = ClockCounter::ClockCounter(std::string path);
+ClockCounter* counter = create_clock_counter(path);
 //! 計測開始
-cc.startCounter();
+start_counter(counter);
 //! 計測停止してファイルに書き出し
-cc.stopCounter();
+stop_counter(counter);
 ```
 
