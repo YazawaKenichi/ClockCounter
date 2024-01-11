@@ -9,7 +9,7 @@ namespace ClockCounter
 {
     ClockCounter::ClockCounter(string _path) : start(0), stop(0)
     {
-        this->path = _path;
+        this->path = "/home/amatsukaze/raspicat2/clock/" + _path;
     }
 
     //! 計測開始
