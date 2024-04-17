@@ -45,7 +45,7 @@ void printf_message(const char* msg)
 void write_file(ClockCounter* counter, const char* text)
 {
     FILE *fp;
-    fp = fopen(addString("/home/amatsukaze/raspicat2/clock/", counter->path), "a");
+    fp = fopen(counter->path, "a");
     if(fp == NULL)
     {
         return;

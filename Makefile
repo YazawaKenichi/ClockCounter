@@ -1,3 +1,5 @@
+COUNT = 1000000000
+
 MAIN = main
 SUB1 = sub1
 SUB2 = ClockCounter
@@ -12,7 +14,7 @@ BUILD = ./build
 LIBS = -lm
 CFLAGS = -I$(INCS)
 PARAM = -O0
-FILE = text
+FILE = frac pow
 
 PROGRAM = hoge
 OBJS = $(BINS)/$(MAIN).o $(BINS)/$(SUB1).o $(BINS)/$(SUB2).o
@@ -28,7 +30,7 @@ chmod : $(PROGRAM)
 	sudo chmod +x $(BUILD)/$(PROGRAM)
 
 execute: all chmod
-	$(BUILD)/$(PROGRAM) $(FILE)
+	$(BUILD)/$(PROGRAM) $(FILE) $(COUNT)
 	cat $(FILE)
 
 all: clean mkdir $(PROGRAM)
